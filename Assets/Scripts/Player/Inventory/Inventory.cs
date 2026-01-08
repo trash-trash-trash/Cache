@@ -24,6 +24,9 @@ public class Inventory : MonoBehaviour
 
    public event Action<bool> AnnounceInventoryFullEmpty;
 
+
+   public GameObject objHold;
+   private GameObject heldItem;
    public void Awake()
    {
       playerInputs.AnnounceInteract += AttemptUseItem;
@@ -80,6 +83,7 @@ public class Inventory : MonoBehaviour
 
    private void SelectItem(int index)
    {
+      //Destroy(objHold.GetComponentInChildren<Transform>().gameObject);
       if (playerItems.Count == 0 || !canOpenInventory)
          return;
 
@@ -87,6 +91,12 @@ public class Inventory : MonoBehaviour
       selectedItem = playerItems[selectIndex];
       AnnounceSelectIndex?.Invoke(selectIndex);
       AnnounceInventoryFullEmpty?.Invoke(true);
+      if (heldItem != null)
+      {
+         Destroy(heldItem);
+         heldItem = null;
+      }
+      heldItem = Instantiate(selectedItem.model, objHold.transform.position, objHold.transform.rotation, objHold.transform);
    }
    
    private void ScrollInventory(Vector2 input)
