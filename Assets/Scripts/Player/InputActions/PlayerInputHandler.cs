@@ -49,7 +49,7 @@ public class PlayerInputHandler : MonoBehaviour
     private void OnEnable()
     {
         controls.Enable();
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
     

@@ -9,6 +9,7 @@ public class ItemSO : ScriptableObject
     
     public string itemName;
     public Sprite icon;
+    //public GameObject objectRepresentation; //so when held has obj in hand
 
     public bool useable;
     public string useString;
