@@ -60,12 +60,18 @@ public class Inventory : MonoBehaviour
       {
          if (!inventoryOpen && playerItems.Count > 0)
          {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+
             inventoryOpen = true;
             SelectItem(selectIndex);
             AnnounceOpenCloseInventory?.Invoke(true);
          }
          else
          {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
             inventoryOpen = false;
             AnnounceOpenCloseInventory?.Invoke(false);
          }
