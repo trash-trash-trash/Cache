@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 1403334094459023410, guid: 524127f90ed01d0448de39d063851736, type: 3}
       propertyPath: key
       value: 
-      objectReference: {fileID: 11400000, guid: 55e806e6ebc83ba4e821341367e01b75, type: 2}
+      objectReference: {fileID: 11400000, guid: 5645658d5f73e673385c88183d73c55b, type: 2}
     - target: {fileID: 1403334094459023410, guid: 524127f90ed01d0448de39d063851736, type: 3}
       propertyPath: locked
       value: 1

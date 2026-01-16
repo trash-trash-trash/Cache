@@ -13,7 +13,7 @@ public class EnemyAIBrain : MonoBehaviour
     public GameObjectStateManager stateManager;
 
     public EnemyAIStates currentState;
-    
+
     public GameObject idleObj;
     public GameObject walkToPlayerObj;
 
@@ -21,7 +21,7 @@ public class EnemyAIBrain : MonoBehaviour
 
     //hack
     public Transform playerTransform;
-    
+
     private bool initialized = false;
 
     void OnEnable()
@@ -30,8 +30,8 @@ public class EnemyAIBrain : MonoBehaviour
         {
             statesDict = new Dictionary<EnemyAIStates, GameObject>()
             {
-                { EnemyAIStates.Idle , idleObj},
-                { EnemyAIStates.WalkToPlayer, walkToPlayerObj}
+                { EnemyAIStates.Idle, idleObj },
+                { EnemyAIStates.WalkToPlayer, walkToPlayerObj }
             };
         }
 
@@ -41,10 +41,16 @@ public class EnemyAIBrain : MonoBehaviour
 
     private void FlipWalkTo(bool inView)
     {
-        if(inView)
+        if (inView)
+        {
             ChangeState(EnemyAIStates.Idle);
+            
+            GetComponent<AudioSource>().Play();
+        }
         else
+        {
             ChangeState(EnemyAIStates.WalkToPlayer);
+        }
     }
 
     public void ChangeState(EnemyAIStates newState)

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994d86338ffefbd44a12eb5722be6bee, type: 3}
+  m_Name: KEY
+  m_EditorClassIdentifier: 
+  itemName: KEY
+  icon: {fileID: 21300000, guid: 90326ccdbd98a4b49b9fbf36328f717a, type: 3}
+  model: {fileID: 4027883236313691365, guid: 1e57c0d3c21e8d50d8a75b66adee6546, type: 3}
+  useable: 0
+  useString: 'E: PICK UP KEY'

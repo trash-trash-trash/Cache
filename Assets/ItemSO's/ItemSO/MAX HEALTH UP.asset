@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994d86338ffefbd44a12eb5722be6bee, type: 3}
+  m_Name: MAX HEALTH UP
+  m_EditorClassIdentifier: 
+  itemName: MaxHealthUp
+  icon: {fileID: -1381020646, guid: f4b5d7cb16aeeb35c82f60c7279b0dd8, type: 3}
+  model: {fileID: 5595216605039385986, guid: b0a98da70ed7c19c89af3eb60eb0db34, type: 3}
+  useable: 1
+  useString: 'E: CONSUME'

@@ -35,7 +35,7 @@ public class InventoryView : MonoBehaviour
     private void ShowOpenCloseInventoryText(bool newInventoryHasItems)
     {
         inventoryHasItems = newInventoryHasItems;
-        
+
         if (inventoryHasItems && inventory.inventoryOpen)
         {
             openCloseInventoryText.text = "I - CLOSE";
@@ -44,7 +44,7 @@ public class InventoryView : MonoBehaviour
         {
             openCloseInventoryText.text = "I - <size=200%><b>I</b></size>NVENTORY";
         }
-        
+
         if (inventoryHasItems)
         {
             openCloseInventoryTextObj.SetActive(true);
@@ -53,7 +53,6 @@ public class InventoryView : MonoBehaviour
         {
             openCloseInventoryTextObj.SetActive(false);
         }
-        
     }
 
     private void ScrollToItem(int index)
@@ -72,7 +71,7 @@ public class InventoryView : MonoBehaviour
         {
             inventoryParentObj.SetActive(false);
         }
-        
+
         ShowOpenCloseInventoryText(inventoryHasItems);
     }
 
@@ -176,7 +175,11 @@ public class InventoryView : MonoBehaviour
         slot.GetComponentInChildren<Image>().sprite = item.icon;
         slot.GetComponentInChildren<TMP_Text>().text = item.itemName;
         slot.transform.localScale = isSelected ? Vector3.one * 2f : Vector3.one;
+
         slot.GetComponentInChildren<MenuModel>().model = item.model;
+
+        slot.GetComponentInChildren<MenuModel>().isSelected = isSelected;
+        
         return slot;
     }
 

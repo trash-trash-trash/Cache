@@ -143,3 +143,17 @@ TODO: swapping back to rigid body from NavMeshAgent causes slight wobble
 -- reverted PlayerMiddleManager from being a singleton. Spawner now informs AI of the Player's Transform manually...
 
 -- started Save/Load high scores
+
+2.4
+
+-- reworked inventory
+
+-- added 3d models to itemSO's
+
+-- added options to pause menu
+
+-- added mouse sensitivity setting
+
+-- added volume setting
+
+-- upgrade unity version to 6.3 LTS

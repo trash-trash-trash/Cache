@@ -48,12 +48,22 @@ public class PauseMenuBrain : MonoBehaviour
         {
             if (currentState == PauseMenuStates.Paused)
             {
+                //not paused
                 ChangeState(PauseMenuStates.Idle);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                
+                FindFirstObjectByType<PlayerMovementHandler>().CanLook = true;
             }
             else
             {
                 //might be bit too general
+                //paused
                 ChangeState(PauseMenuStates.Paused);
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+                
+                FindFirstObjectByType<PlayerMovementHandler>().CanLook = false;
             }
         }
     }
@@ -69,13 +79,16 @@ public class PauseMenuBrain : MonoBehaviour
 
     public void FlipPause(bool obj)
     {
-        if (obj)
+        if (gameManager != null)
         {
-            gameManager.PauseGame(true);
-        }
-        else
-        {
-            gameManager.PauseGame(false);
+            if (obj)
+            {
+                gameManager.PauseGame(true);
+            }
+            else
+            {
+                gameManager.PauseGame(false);
+            }
         }
     }
 

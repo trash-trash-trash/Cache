@@ -78,12 +78,14 @@ public class EnemyAIWalkToPlayerState : EnemyAIStateBase
         if (currentDist < minKillDist)
         {
             Health HP = playerTransform.GetComponentInParent<Health>();
-            
-            if(AAAGameManager.Instance.currentDifficulty == Difficulty.Normal)
-                HP.ChangeHealth(-1);
-            
-           else
-                HP.Kill();
+            if (AAAGameManager.Instance != null)
+            {
+                if (AAAGameManager.Instance.currentDifficulty == Difficulty.Normal)
+                    HP.ChangeHealth(-1);
+
+                else
+                    HP.Kill();
+            }
         }
     }
 

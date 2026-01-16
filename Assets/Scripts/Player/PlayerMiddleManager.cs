@@ -14,8 +14,11 @@ public class PlayerMiddleManager : MonoBehaviour, IPlayer
     void Awake()
     {
         inventory.AnnounceOpenCloseInventory += FlipPlayerLookMovement;
-        gameManager = AAAGameManager.Instance;
-        gameManager.AnnouncePause += StopStartMoveLook;
+        if (gameManager != null)
+        {
+            gameManager = AAAGameManager.Instance;
+            gameManager.AnnouncePause += StopStartMoveLook;
+        }
         health.AnnounceIsAlive += ResetInventory;
     }
 

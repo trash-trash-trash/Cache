@@ -1,8 +1,19 @@
+using System;
 using UnityEngine;
 
 public class ItemPickup : Interactable
 {
     public ItemSO itemSO;
+
+    private void Start()
+    {
+        if (itemSO.model != null)
+        {
+            GetComponent<MeshRenderer>().enabled = false;
+            GameObject mdl = Instantiate(itemSO.model, transform.position, transform.rotation, this.transform);
+            mdl.transform.localScale *= 4;
+        }
+    }
 
     public override void Interact()
     {

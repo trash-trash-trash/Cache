@@ -9,11 +9,14 @@ public class PlayerHealth : Health
     
     public override void Rez()
     {
-        if (AAAGameManager.Instance.currentDifficulty == Difficulty.Normal)
-            maxHealth = normalMaxHealth;
-        else
-            maxHealth = hardMaxHealth;
-        
+        if (AAAGameManager.Instance != null)
+        {
+            if (AAAGameManager.Instance.currentDifficulty == Difficulty.Normal)
+                maxHealth = normalMaxHealth;
+            else
+                maxHealth = hardMaxHealth;
+        }
+
         base.ChangeHealth(maxHealth);
         AnnounceIsAlive += AddToDeathCounter;
     }

@@ -5,8 +5,10 @@ public class MenuModel : MonoBehaviour
 {
     public GameObject model;
     public RawImage img;
-
+    public Image image;
+    
     private GameObject obj;
+    public bool isSelected;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,15 +23,29 @@ public class MenuModel : MonoBehaviour
             Destroy(obj);
         }
 
-        obj = Instantiate(model, transform.position, transform.rotation, transform);
-        obj.transform.localScale *= 80;
-        RenderTexture rt = new RenderTexture(1024, 1024, 16);
-        img.texture = rt;
-        GetComponentInParent<Camera>().targetTexture = rt;
+        if (model != null && isSelected)
+        {
+            img.enabled = true;
+            image.enabled = false;
+            obj = Instantiate(model, transform.position, transform.rotation, transform);
+            
+            obj.transform.localScale *= 80;
+            RenderTexture rt = new RenderTexture(1024, 1024, 16);
+            img.texture = rt;
+            GetComponentInParent<Camera>().targetTexture = rt;
         
-        Vector3 handScreenPos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector2 direction = Input.mousePosition - handScreenPos;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, angle*2, 0);
+            Vector3 handScreenPos = Camera.main.WorldToScreenPoint(transform.position);
+            Vector2 direction = Input.mousePosition - handScreenPos;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, angle*2, 0);
+        }
+        else
+        {
+            img.enabled = false;
+            image.enabled = true;
+
+        }
+
+        
     }
 }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994d86338ffefbd44a12eb5722be6bee, type: 3}
+  m_Name: FLOPPY DISK
+  m_EditorClassIdentifier: 
+  itemName: FloppyDisk
+  icon: {fileID: 1524023836, guid: b72ca8e364bd3c9bc9476f63d0fc2dfd, type: 3}
+  model: {fileID: 6063931805017359405, guid: 75122274c070ebbb581d1ba85de4dde9, type: 3}
+  useable: 0
+  useString: 
