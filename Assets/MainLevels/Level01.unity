@@ -17753,7 +17753,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177249433}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 85e4809117e0f4791bc81f181edac665, type: 3}
+  m_VideoClip: {fileID: 0}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -17771,7 +17771,7 @@ VideoPlayer:
   - {fileID: 1848223253}
   m_DirectAudioVolumes:
   - 1
-  m_Url: https://avtshare01.rz.tu-ilmenau.de/avt-vqdb-uhd-1/test_1/segments/bigbuck_bunny_8bit_15000kbps_1080p_60.0fps_h264.mp4
+  m_Url: https://dl11.webmfiles.org/big-buck-bunny_trailer-.webm
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1

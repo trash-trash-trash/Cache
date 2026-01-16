@@ -68,7 +68,7 @@ public class PlayerMiddleManager : MonoBehaviour, IPlayer
     
     void OnDisable()
     {
-        gameManager.AnnouncePause -= StopStartMoveLook;
+        //gameManager.AnnouncePause -= StopStartMoveLook;
         health.AnnounceIsAlive -= ResetInventory;
         inventory.AnnounceOpenCloseInventory -= FlipPlayerLookMovement;
     }
