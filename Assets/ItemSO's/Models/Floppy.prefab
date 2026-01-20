@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4610350021699734165}
   - component: {fileID: 8731349732879657113}
   - component: {fileID: 2371009781899085438}
+  - component: {fileID: -352613508532978288}
   m_Layer: 0
   m_Name: Floppy
   m_TagString: Untagged
@@ -108,7 +109,20 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-352613508532978288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6063931805017359405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f73b818be1686084a35148e44d77dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  data: 189238901230

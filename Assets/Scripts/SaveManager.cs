@@ -7,8 +7,11 @@ public class SaveManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Saved") != 0)
         {
-            FindFirstObjectByType<PlayerMovementHandler>().mouseSensitivity = (PlayerPrefs.GetInt("Sensitivity")/100);
-            AudioListener.volume = PlayerPrefs.GetFloat("Volume")/100;
+            float sensitivity = Load("Sensitivity");
+            FindFirstObjectByType<PlayerMovementHandler>().mouseSensitivity = sensitivity/100;
+            
+            float vol =  Load("Volume");
+            AudioListener.volume = vol/100;
         }
     }
 

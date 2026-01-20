@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 5164182285831171802}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -555,6 +555,7 @@ MonoBehaviour:
   playerInputs: {fileID: 6172404919434850716}
   itemUseCase: {fileID: 2524413790121024776}
   objHold: {fileID: 7103177529801213714}
+  inventoryItemPrefab: {fileID: 2101443014097955180, guid: a427bbfcc43dc23e9b2ca24578bfe522, type: 3}
 --- !u!114 &4357618972749286428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3050,7 +3051,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 695
+    m_Bits: 1719
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

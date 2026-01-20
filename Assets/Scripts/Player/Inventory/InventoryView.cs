@@ -112,7 +112,7 @@ public class InventoryView : MonoBehaviour
         if (count == 1)
         {
             // Only one item
-            GameObject slot = CreateSlot(inventory.playerItems[selected], true);
+            GameObject slot = CreateSlot(inventory.playerItems[selected].item, true);
             slot.transform.SetParent(gridParentObj.transform, false);
 
             leftArrow.gameObject.SetActive(false);
@@ -129,10 +129,10 @@ public class InventoryView : MonoBehaviour
             leftArrow.transform.SetParent(gridParentObj.transform, false);
             emptyObject.transform.SetParent(gridParentObj.transform, false);
 
-            GameObject leftSlot = CreateSlot(inventory.playerItems[selected], true);
+            GameObject leftSlot = CreateSlot(inventory.playerItems[selected].item, true);
             leftSlot.transform.SetParent(gridParentObj.transform, false);
 
-            GameObject rightSlot = CreateSlot(inventory.playerItems[rightIndex], false);
+            GameObject rightSlot = CreateSlot(inventory.playerItems[rightIndex].item, false);
             rightSlot.transform.SetParent(gridParentObj.transform, false);
 
             rightArrow.transform.SetParent(gridParentObj.transform, false);
@@ -146,26 +146,26 @@ public class InventoryView : MonoBehaviour
 
             leftArrow.transform.SetParent(gridParentObj.transform, false);
 
-            GameObject leftSlot = CreateSlot(inventory.playerItems[leftIndex], false);
+            GameObject leftSlot = CreateSlot(inventory.playerItems[leftIndex].item, false);
             leftSlot.transform.SetParent(gridParentObj.transform, false);
 
-            GameObject centerSlot = CreateSlot(inventory.playerItems[selected], true);
+            GameObject centerSlot = CreateSlot(inventory.playerItems[selected].item, true);
             centerSlot.transform.SetParent(gridParentObj.transform, false);
 
-            GameObject rightSlot = CreateSlot(inventory.playerItems[rightIndex], false);
+            GameObject rightSlot = CreateSlot(inventory.playerItems[rightIndex].item, false);
             rightSlot.transform.SetParent(gridParentObj.transform, false);
 
             rightArrow.transform.SetParent(gridParentObj.transform, false);
             rightArrow.transform.SetAsLastSibling();
         }
 
-        if (inventory.selectedItem.useable)
+        if (inventory.selectedItem.item.useable)
         {
-            inventoryText.text = inventory.selectedItem.useString;
+            inventoryText.text = inventory.selectedItem.item.useString;
         }
         else
         {
-            inventoryText.text = "";
+            inventoryText.text = "DATA: "+ inventory.selectedItem.data;
         }
     }
 

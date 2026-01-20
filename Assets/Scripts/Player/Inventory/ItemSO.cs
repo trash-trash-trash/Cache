@@ -12,7 +12,9 @@ public class ItemSO : ScriptableObject
 
     public GameObject model;
     //public GameObject objectRepresentation; //so when held has obj in hand
-
+    [Space] 
+    [Space] 
+    [Space] 
     public bool useable;
     public string useString;
     

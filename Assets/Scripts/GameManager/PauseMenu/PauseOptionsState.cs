@@ -19,6 +19,7 @@ public class PauseOptionsState : PauseStateBase
     {
         if (PlayerPrefs.GetInt("Saved") != 0)
         {
+            print("Loading: " + FindFirstObjectByType<SaveManager>().Load("Sensitivity"));
             mouseSensitivitySlider.value = FindFirstObjectByType<SaveManager>().Load("Sensitivity");
             volumeSlider.value = FindFirstObjectByType<SaveManager>().Load("Volume");
         }
@@ -34,6 +35,7 @@ public class PauseOptionsState : PauseStateBase
         mouseSensitivityText.text = "Mouse Sensitivity - " + mouseSensitivitySlider.value;
         FindFirstObjectByType<PlayerMovementHandler>().mouseSensitivity = mouseSensitivitySlider.value/100;
         
+        print("SAVING: " + Mathf.RoundToInt(mouseSensitivitySlider.value));
         FindFirstObjectByType<SaveManager>().Save("Sensitivity", Mathf.RoundToInt(mouseSensitivitySlider.value));
 
     }

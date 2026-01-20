@@ -11,9 +11,9 @@ public class Inventory : MonoBehaviour
    //reset between open/close or remain consistent?
    public int selectIndex = 0;
    [SerializeField]
-   public ItemSO selectedItem;
-   public List<ItemSO> playerItems = new List<ItemSO>();
-   public List<ItemSO> usedItems = new List<ItemSO>();
+   public InventoryItem selectedItem;
+   public List<InventoryItem> playerItems = new List<InventoryItem>();
+   public List<InventoryItem> usedItems = new List<InventoryItem>();
 
    public PlayerInputHandler playerInputs;
 
@@ -26,6 +26,8 @@ public class Inventory : MonoBehaviour
 
    public GameObject objHold;
    private GameObject heldItem;
+   
+   public GameObject inventoryItemPrefab;
    public void Awake()
    {
       playerInputs.AnnounceInteract += AttemptUseItem;
@@ -43,10 +45,10 @@ public class Inventory : MonoBehaviour
          if (!inventoryOpen)
             return;
 
-         if (selectedItem.useable)
+         if (selectedItem.item.useable)
          {
-            itemUseCase.Use(selectedItem);
-            RemoveItem(selectedItem);
+            itemUseCase.Use(selectedItem.item);
+            RemoveItem(selectedItem.item);
          }
       }
    }
@@ -95,7 +97,7 @@ public class Inventory : MonoBehaviour
          Destroy(heldItem);
          heldItem = null;
       }
-      heldItem = Instantiate(selectedItem.model, objHold.transform.position, objHold.transform.rotation, objHold.transform);
+      heldItem = Instantiate(selectedItem.item.model, objHold.transform.position, objHold.transform.rotation, objHold.transform);
    }
    
    private void ScrollInventory(Vector2 input)
@@ -123,9 +125,11 @@ public class Inventory : MonoBehaviour
       }
    }
 
-   public void AddItem(ItemSO newItem)
+   public void AddItem(InventoryItem newItem)
    {
-      playerItems.Add(newItem);
+      InventoryItem invItem = CreateInventoryItem(newItem.item, newItem.data);
+      print("added item with data: " + invItem.data);
+      playerItems.Add(invItem);
       AnnounceInventoryFullEmpty?.Invoke(true);
    }
 
@@ -154,13 +158,27 @@ public class Inventory : MonoBehaviour
 
    public void RemoveItem(ItemSO itemToRemove)
    {
+      /*
       if (playerItems.Contains(itemToRemove))
       {
          Destroy(heldItem);
          heldItem = null;
          playerItems.Remove(itemToRemove);
          usedItems.Add(itemToRemove);
+      }*/
+
+      foreach (InventoryItem item in playerItems)
+      {
+         if (item.item == itemToRemove)
+         {
+            Destroy(heldItem);
+            heldItem = null;
+            playerItems.Remove(item);
+            usedItems.Add(item);
+            break;
+         }
       }
+      
 
       if (playerItems.Count == 0)
       {
@@ -178,13 +196,13 @@ public class Inventory : MonoBehaviour
 
    public void Reset()
    {
-      List<ItemSO> itemsToRemove = new List<ItemSO>();
+      List<InventoryItem> itemsToRemove = new List<InventoryItem>();
       itemsToRemove.AddRange(playerItems);
       itemsToRemove.AddRange(usedItems);
       foreach (var item in itemsToRemove)
       {
-         item.Reset();
-         RemoveItem(item);
+         item.item.Reset();
+         RemoveItem(item.item);
       }
       playerItems.Clear();
    }
@@ -194,5 +212,26 @@ public class Inventory : MonoBehaviour
       playerInputs.AnnounceInteract -= AttemptUseItem;
       playerInputs.AnnounceInventory -= OpenCloseInventory;
       playerInputs.AnnounceMoveVector2 -= ScrollInventory;
+   }
+
+   public InventoryItem CreateInventoryItem(ItemSO newItemISO, string newItemData = "NULL")
+   {
+      GameObject it = Instantiate(inventoryItemPrefab, objHold.transform.position, objHold.transform.rotation, objHold.transform);
+      InventoryItem invit = it.GetComponent<InventoryItem>();
+      invit.item = newItemISO;
+      invit.data = newItemData;
+      return invit;
+   }
+
+   public bool FindSpecificItemInInventory(ItemSO itemSO)
+   {
+      foreach (var item in playerItems)
+      {
+         if (item.item == itemSO)
+         {
+            return true;
+         }
+      }
+      return false;
    }
 }

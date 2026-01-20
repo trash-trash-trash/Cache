@@ -22,7 +22,8 @@ public class ItemPickup : Interactable
             Inventory inventory = iInteractTransform.GetComponent<Inventory>();
             if (inventory != null)
             {
-                inventory.AddItem(itemSO);
+                InventoryItem itm = inventory.CreateInventoryItem(itemSO, "NULL");
+                inventory.AddItem(itm);
                 PlayerInteract player = iInteractTransform.GetComponent<PlayerInteract>();
                 CloseInteractable(player);
                 gameObject.SetActive(false);

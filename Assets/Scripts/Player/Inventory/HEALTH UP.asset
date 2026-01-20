@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: HealthUp
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  model: {fileID: 5595216605039385986, guid: b0a98da70ed7c19c89af3eb60eb0db34, type: 3}
   useable: 1
   useString: 'E: CONSUME'
+  data: 

@@ -2,33 +2,27 @@ using System;
 using UnityEngine;
 
 public class IsCameraLookingAtMe : MonoBehaviour
-{
-    public Camera targetCamera;
-    public bool isInView = false;
-
+{ 
     public event Action<bool> AnnounceInView;
-    
-    public Renderer myRenderer;
-
-    void Start()
+    RaycastHit hit;
+    public LayerMask layerMask;
+    int finalLayerMask;
+    void OnBecameVisible()
     {
-        if (targetCamera == null)
-            targetCamera = Camera.main;
-    }
-
-    void Update()
-    {
-        CheckIfInView();
-    }
-
-    void CheckIfInView()
-    {
-        // Get camera frustum planes
-        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(targetCamera);
-
-        // Check if renderer's bounds intersect camera frustum
-        isInView = GeometryUtility.TestPlanesAABB(planes, myRenderer.bounds);
+        finalLayerMask = ~layerMask;
         
-        AnnounceInView?.Invoke(isInView);
+        if (Physics.Raycast(transform.position, (Camera.main.gameObject.transform.position - transform.position), out hit, Mathf.Infinity, finalLayerMask))
+        {
+            print(hit.transform.name);
+            if (hit.transform.CompareTag("Player"))
+            {
+                AnnounceInView?.Invoke(true);
+            }
+        }
+    }
+
+    private void OnBecameInvisible()
+    {
+        AnnounceInView?.Invoke(false);
     }
 }

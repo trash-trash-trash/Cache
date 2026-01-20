@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 994d86338ffefbd44a12eb5722be6bee, type: 3}
-  m_Name: KEY
+  m_Name: CAMERA
   m_EditorClassIdentifier: 
-  itemName: KEY
-  icon: {fileID: 21300000, guid: 90326ccdbd98a4b49b9fbf36328f717a, type: 3}
-  model: {fileID: 4027883236313691365, guid: 1e57c0d3c21e8d50d8a75b66adee6546, type: 3}
+  itemName: Camera
+  icon: {fileID: -1381020646, guid: f4b5d7cb16aeeb35c82f60c7279b0dd8, type: 3}
+  model: {fileID: 5595216605039385986, guid: b0a98da70ed7c19c89af3eb60eb0db34, type: 3}
   useable: 0
-  useString: 'E: PICK UP KEY'
-  data: 
+  useString: 

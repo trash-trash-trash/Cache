@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6714834818987036324}
   - component: {fileID: 4564165623630187648}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WalkToPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4185888473443390918}
   - component: {fileID: 6357551121522995054}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IdleState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 662732166108744706}
   - component: {fileID: 572885948335846801}
   - component: {fileID: 4726124103985216586}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FollowMannequin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98fca305924ecae4c8c30f93a2b922cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCameraLookingAtMe: {fileID: 246159563166980820}
+  isCameraLookingAtMe: {fileID: 1220324244126159016}
   stateManager: {fileID: 7716658827472231021}
   currentState: 0
   idleObj: {fileID: 3759545855852424659}
@@ -215,14 +215,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4452838403148783910}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f9f93af2c1730846b4dc62de013ddca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 0}
-  isInView: 0
-  myRenderer: {fileID: 8318200466276394109}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &7716658827472231021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +390,8 @@ GameObject:
   - component: {fileID: 2484144368494128978}
   - component: {fileID: 1713980186043111909}
   - component: {fileID: 8318200466276394109}
-  m_Layer: 0
+  - component: {fileID: 1220324244126159016}
+  m_Layer: 10
   m_Name: Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,6 +470,21 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1220324244126159016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4729896217813547015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9f93af2c1730846b4dc62de013ddca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IsCameraLookingAtMe
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &5088654995865038363
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +494,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 234167929792348246}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}

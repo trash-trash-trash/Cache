@@ -55,10 +55,10 @@ public class Door : Interactable
             Inventory inv = t.GetComponent<Inventory>();
             if (inv == null) return "";
 
-            bool playerHasKey = inv.playerItems.Contains(key);
+            bool playerHasKey = inv.FindSpecificItemInInventory(key);
             if (!playerHasKey) return "LOCKED. FIND THE KEY";
 
-            bool keyEquipped = inv.selectedItem == key;
+            bool keyEquipped = inv.selectedItem.item == key;
             if (!keyEquipped) return "KEY NOT EQUIPPED!";
 
             return "E: UNLOCK";
@@ -78,7 +78,7 @@ public class Door : Interactable
     public virtual void TryUnlock()
     {
         Inventory inventory = iInteractTransform.GetComponent<Inventory>();
-        if (inventory.selectedItem == key)
+        if (inventory.selectedItem.item == key)
         {
             locked = false;
             inventory.RemoveItem(key);

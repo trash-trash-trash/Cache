@@ -45,11 +45,13 @@ public class EnemyAIBrain : MonoBehaviour
         {
             ChangeState(EnemyAIStates.Idle);
             
-            GetComponent<AudioSource>().Play();
+            GetComponent<AudioSource>().Stop();
         }
         else
         {
             ChangeState(EnemyAIStates.WalkToPlayer);
+            
+            GetComponent<AudioSource>().Play();
         }
     }
 
